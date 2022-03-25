@@ -1,0 +1,23 @@
+name = "aptfetch"
+# type = "javascript" is required to use the `[build]` section
+# Note: safe to keep id in sc (https://github.com/cloudflare/wrangler/issues/209#issuecomment-541654484)
+type = "javascript"
+account_id = "239bbe16bc1375a1213da0f4aa229102"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-01-27"
+
+[vars]
+START_DATE = "2022-4-01"
+END_DATE = "2022-6-30"
+
+
+[build]
+command = "npm install && npm run build"
+
+[build.upload]
+# The "modules" upload format is required for all projects that export a Durable Objects class
+format = "modules"
+main = "./index.mjs"
+
